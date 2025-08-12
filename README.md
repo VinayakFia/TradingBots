@@ -1,19 +1,19 @@
-## TradingBots
-### What is it?
-- Relatively functional backtesting library to test trading strategies.
-- Indicators
-- Stoplosses
-- Strategies
+# TradingBots
 
-### What can it do?
-- Backtest your strategy against ~700 stocks and give you some basic stats. (for example, how much money you would've lost, how much time you spent invested etc...)
+A simple backtesting library for testing trading strategies in C#/.NET.
 
-### How do I make a strategy?
-1. Extend the strategy class
-2. Implement the `OnNext` method
-3. Setup indicators by subscribing them
-4. Setup stoplosses by subscribing them
-5. Read the code below, it's pretty self explanatory
+## What it does
+
+- Test trading strategies against historical stock data (~700 stocks)
+- Built-in technical indicators (moving averages, RSI, ATR, etc.)
+- Basic stop-loss functionality
+- Generate performance metrics and optional charts
+
+## Usage
+
+Create a stretegy by extending the `Strategy` class:
+
+
 ```csharp
 internal class SimpleStrategy : Strategy
 {
@@ -60,3 +60,47 @@ internal class SimpleStrategy : Strategy
     }
 }
 ```
+
+## Output
+
+Basic performance metrics:
+
+```
+794/794
+ -------------------------------------------------------
+ | Metric                        | Value               |
+ -------------------------------------------------------
+ | Exposure                      | 29.816084460890167% |
+ -------------------------------------------------------
+ | Average Return Per Trade      | 0.5561910795131949% |
+ -------------------------------------------------------
+ | Win Rate                      | 56%                 |
+ -------------------------------------------------------
+ | Annusalised Return            | 2.661242002920265%  |
+ -------------------------------------------------------
+ | Annusalised Return / Exposure | 8.925524766375755%  |
+ -------------------------------------------------------
+ | Max Annual Return             | 498.97544788687657% |
+ -------------------------------------------------------
+
+ Count: 6
+```
+
+Optional chart showing buy/sell signals:
+<img width="6000" height="3000" alt="plot" src="https://github.com/user-attachments/assets/f53ace20-a10d-46b0-a8a1-2f980a0e7bfd" />
+
+## Features
+
+- Common technical indicators
+- ATR-based and percentage stop losses
+- Performance analytics
+- Simple charting
+
+## Tech Stack
+
+- C#/.NET
+- Historical stock data processing
+
+---
+
+*Educational project - not for actual trading*
